@@ -4,14 +4,10 @@
     The majority element is the element that appears more than ⌊n / 2⌋ times. 
     You may assume that the majority element always exists in the array.
 '''
+from collections import Counter
 
 def majorityElement(self, nums: list[int]) -> int:
-    element=None
-    count=0
-    for num in nums:
-        if count==0:
-            element=num
-        count+=(1 if num==element else -1)
-        
-    return element
-
+    C = Counter(nums)
+    for key in C:
+        if C[key] > len(nums) / 2:
+            return int(key)

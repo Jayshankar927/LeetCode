@@ -8,17 +8,9 @@ To accommodate this, nums1 has a length of m + n, where the first m elements den
 '''
 
 def merge(nums1,m,nums2,n):
-    for i in range(n):
-        inserted=False
-        
-        for j in range(m+i):
-            if nums2[i]<nums1[j]:
-                nums1.insert(j,nums2[i])
-                nums1.pop()
-                inserted=True
-                break
-            if not inserted:
-                nums1[m+i]=nums2[i]
+    for j in range(n):
+        nums1[m+j] = nums2[j]
+    nums1.sort()
 
 nums1=[1,3,5,0,0,0]
 nums2=[2,3,4]

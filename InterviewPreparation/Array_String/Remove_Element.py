@@ -8,20 +8,10 @@
 '''
 
 def removeElement(self, nums: list[int], val: int) -> int:
-        left=0
-        right=len(nums)-1
+        k=0
+        for j in range(len(nums)):
+            if nums[j] != val:
+                nums[k]=nums[j]
+                k+=1
 
-        if val not in nums:
-            return len(nums)
-        
-        while left<right:
-            if nums[left]==val:
-                while nums[left]==nums[right]:
-                    right-=1
-                    if left>=right:
-                        return left
-                nums[left],nums[right]=nums[right],nums[left]
-
-            left+=1
-
-        return left
+        return k

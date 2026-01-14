@@ -36,34 +36,12 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.'''
 
 
-class Solution:
-    def romanToInt(self, s: str) -> int:
-        # Step 1: Define Roman numeral values
-        roman_values = {
-            'I': 1,
-            'V': 5,
-            'X': 10,
-            'L': 50,
-            'C': 100,
-            'D': 500,
-            'M': 1000
-        }
-
-        # Step 2: Initialize variables
-        total = 0
-        prev_value = 0
-
-        # Step 3: Iterate through the string in reverse order
-        for char in reversed(s):
-            current_value = roman_values[char]
-            
-            # Step 4: Apply the subtraction rule
-            if current_value < prev_value:
-                total -= current_value
-            else:
-                total += current_value
-
-            # Update prev_value
-            prev_value = current_value
-
-        return total
+def romanToInt(self, s: str) -> int:
+    numbers = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
+    res = 0
+    for i in range(len(s)):
+        if i+1 < len(s) and numbers[s[i]] < numbers[s[i+1]]:
+            res -= numbers[s[i]]
+        else:
+            res += numbers[s[i]]
+    return res
