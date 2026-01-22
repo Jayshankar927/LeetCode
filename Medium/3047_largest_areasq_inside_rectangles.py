@@ -45,3 +45,8 @@ def largestSquareArea(bottomLeft, topRight):
             maximal_size = min(size_x_intersect, size_y_intersect)
                 
     return maximal_size**2
+
+bottomLeft = [[1,1],[2,2],[1,2]]
+topRight = [[3,3],[4,4],[3,4]]
+
+print(largestSquareArea(bottomLeft, topRight))
